@@ -9,5 +9,17 @@
 }
 RCT_EXPORT_MODULE()
 
+- (NSString*) test
+{
+    return @"test";
+}
+
+- (NSDictionary *)constantsToExport
+{
+
+    return @{
+             @"test": self.test
+             };
+}
+
 @end
-  
