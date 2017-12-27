@@ -1,7 +1,9 @@
 import { NativeModules } from 'react-native';
-import AppWall from "./RNMobvistaAppWall"
+import AppWall from "./RNMobvistaAppWall";
+import NativeAd from "./RNMobvistaNativeAd";
+import RewardVideo from "./RNMobvistaRewardVideo";
 
-const { RNReactNativeMobvista } = NativeModules;
+// const { RNReactNativeMobvista } = NativeModules;
 
 // export default {
 //   test: function () {
@@ -9,4 +11,4 @@ const { RNReactNativeMobvista } = NativeModules;
 //   }
 // }
 
-export { AppWall };
+export { AppWall, NativeAd, RewardVideo };

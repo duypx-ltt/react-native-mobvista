@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		170D432D1FF3A8FD00744434 /* RNNativeAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 170D432C1FF3A8FD00744434 /* RNNativeAdManager.m */; };
+		170D43301FF3A93800744434 /* RNNativeAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 170D432F1FF3A93800744434 /* RNNativeAdView.m */; };
+		17A5B0E81FF3F136009AF2DB /* RNRewardVideoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A5B0E71FF3F136009AF2DB /* RNRewardVideoManager.m */; };
+		17A5B0EB1FF3F151009AF2DB /* RNRewardVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A5B0EA1FF3F151009AF2DB /* RNRewardVideoView.m */; };
 		17AD81F11FF0F75F0037B827 /* RNAppWallManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AD81F01FF0F75F0037B827 /* RNAppWallManager.m */; };
 		17AD81F51FF104520037B827 /* RNMobvistaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AD81F41FF104520037B827 /* RNMobvistaView.m */; };
 		B3E7B58A1CC2AC0600A0062D /* RNReactNativeMobvista.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNReactNativeMobvista.m */; };
@@ -26,6 +30,14 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libRNReactNativeMobvista.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNReactNativeMobvista.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		170D432B1FF3A8FD00744434 /* RNNativeAdManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNNativeAdManager.h; sourceTree = "<group>"; };
+		170D432C1FF3A8FD00744434 /* RNNativeAdManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNNativeAdManager.m; sourceTree = "<group>"; };
+		170D432E1FF3A93800744434 /* RNNativeAdView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNNativeAdView.h; sourceTree = "<group>"; };
+		170D432F1FF3A93800744434 /* RNNativeAdView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNNativeAdView.m; sourceTree = "<group>"; };
+		17A5B0E61FF3F136009AF2DB /* RNRewardVideoManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNRewardVideoManager.h; sourceTree = "<group>"; };
+		17A5B0E71FF3F136009AF2DB /* RNRewardVideoManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNRewardVideoManager.m; sourceTree = "<group>"; };
+		17A5B0E91FF3F151009AF2DB /* RNRewardVideoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNRewardVideoView.h; sourceTree = "<group>"; };
+		17A5B0EA1FF3F151009AF2DB /* RNRewardVideoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNRewardVideoView.m; sourceTree = "<group>"; };
 		17AD81EF1FF0F75F0037B827 /* RNAppWallManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNAppWallManager.h; sourceTree = "<group>"; };
 		17AD81F01FF0F75F0037B827 /* RNAppWallManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNAppWallManager.m; sourceTree = "<group>"; };
 		17AD81F31FF104520037B827 /* RNMobvistaView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNMobvistaView.h; sourceTree = "<group>"; };
@@ -56,6 +68,14 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
+				17A5B0E91FF3F151009AF2DB /* RNRewardVideoView.h */,
+				17A5B0EA1FF3F151009AF2DB /* RNRewardVideoView.m */,
+				17A5B0E61FF3F136009AF2DB /* RNRewardVideoManager.h */,
+				17A5B0E71FF3F136009AF2DB /* RNRewardVideoManager.m */,
+				170D432E1FF3A93800744434 /* RNNativeAdView.h */,
+				170D432F1FF3A93800744434 /* RNNativeAdView.m */,
+				170D432B1FF3A8FD00744434 /* RNNativeAdManager.h */,
+				170D432C1FF3A8FD00744434 /* RNNativeAdManager.m */,
 				17AD81F31FF104520037B827 /* RNMobvistaView.h */,
 				17AD81F41FF104520037B827 /* RNMobvistaView.m */,
 				17AD81EF1FF0F75F0037B827 /* RNAppWallManager.h */,
@@ -122,9 +142,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17A5B0E81FF3F136009AF2DB /* RNRewardVideoManager.m in Sources */,
 				B3E7B58A1CC2AC0600A0062D /* RNReactNativeMobvista.m in Sources */,
+				170D432D1FF3A8FD00744434 /* RNNativeAdManager.m in Sources */,
 				17AD81F51FF104520037B827 /* RNMobvistaView.m in Sources */,
+				17A5B0EB1FF3F151009AF2DB /* RNRewardVideoView.m in Sources */,
 				17AD81F11FF0F75F0037B827 /* RNAppWallManager.m in Sources */,
+				170D43301FF3A93800744434 /* RNNativeAdView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

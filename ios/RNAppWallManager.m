@@ -19,10 +19,6 @@ RCT_EXPORT_MODULE();
 
 - (UIView *)view
 {
-//    UIView *appWallView;
-//    appWallView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-//    appWallView.backgroundColor = [UIColor redColor];
-//    return appWallView;
     if (_mobvistaView == nil) {
         _mobvistaView = [[RNMobvistaView alloc] init];
     }
@@ -40,15 +36,6 @@ RCT_EXPORT_METHOD(loadBanner)
 {
     NSLog(@"loadBanner");
     [_mobvistaView loadMobvistaView];
-//    [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager, NSDictionary<NSNumber *, RNGADBannerView *> *viewRegistry) {
-//        RNGADBannerView *view = viewRegistry[reactTag];
-//        if (![view isKindOfClass:[RNGADBannerView class]]) {
-//            RCTLogError(@"Invalid view returned from registry, expecting RNGADBannerView, got: %@", view);
-//        } else {
-//            [view loadBanner];
-//        }
-//    }];
-//    [view loadBanner];
 }
 
 @end
