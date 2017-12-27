@@ -16,10 +16,15 @@ RCT_EXPORT_MODULE()
 
 - (NSDictionary *)constantsToExport
 {
-
+    
     return @{
              @"test": self.test
              };
+}
+
+- (BOOL)requiresMainQueueSetup
+{
+    return YES;
 }
 
 @end
