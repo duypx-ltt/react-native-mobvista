@@ -4,11 +4,44 @@ import {
   UIManager,
   findNodeHandle,
   ViewPropTypes,
-  NativeModules
+  NativeModules,
+  TouchableOpacity
 } from 'react-native';
 
 const RNRewardVideo = requireNativeComponent('RNRewardVideo', RewardVideo, {});
 const RNRewardVideoManager = NativeModules.RNRewardVideoManager;
+
+/**
+ * Example:
+   <Touchable
+   style={ {width: "100%", flex: 1} }
+   onPress={ () => {
+                this._basicExample.showRewardVideo();
+              } }
+   >
+   <RewardVideo
+   ref={ el => (this._basicExample = el) }
+   onVideoAdLoadSuccess={ event => {
+                  console.log(event);
+                } }
+   onVideoAdLoadFailed={ event => {
+                  console.log(event);
+                } }
+   onVideoAdShowSuccess={ event => {
+                  console.log(event);
+                } }
+   onVideoAdShowFailed={ event => {
+                  console.log(event);
+                } }
+   onVideoAdDismissed={ event => {
+                  console.log(event);
+                } }
+   onVideoAdClicked={ event => {
+                  console.log(event);
+                } }
+   />
+   </Touchable>
+ */
 
 export default class RewardVideo extends Component {
 
@@ -73,16 +106,18 @@ export default class RewardVideo extends Component {
 
   render() {
     return (
-      <RNRewardVideo
-        {...this.props}
-        ref={el => (this._bannerView = el)}
-        onVideoAdLoadSuccess={this.handleOnVideoAdLoadSuccess}
-        onVideoAdLoadFailed={this.handleOnVideoAdLoadFailed}
-        onVideoAdShowSuccess={this.handleOnVideoAdShowSuccess}
-        onVideoAdShowFailed={this.handleOnVideoAdShowFailed}
-        onVideoAdDismissed={this.handleOnVideoAdDismissed}
-        onVideoAdClicked={this.handleOnVideoAdClicked}
-      />
+      <TouchableOpacity style={{...this.props.style}} onPress={() => {this.showRewardVideo()}}>
+        <RNRewardVideo
+          { ...this.props }
+          ref={ el => (this._bannerView = el) }
+          onVideoAdLoadSuccess={ this.handleOnVideoAdLoadSuccess }
+          onVideoAdLoadFailed={ this.handleOnVideoAdLoadFailed }
+          onVideoAdShowSuccess={ this.handleOnVideoAdShowSuccess }
+          onVideoAdShowFailed={ this.handleOnVideoAdShowFailed }
+          onVideoAdDismissed={ this.handleOnVideoAdDismissed }
+          onVideoAdClicked={ this.handleOnVideoAdClicked }
+        />
+      </TouchableOpacity>
     )
   }
 }
