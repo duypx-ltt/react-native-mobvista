@@ -183,6 +183,93 @@
     [self addSubview:_nativeAdView];
 }
 
+- (void)initPetNativeVideoAd:(MVCampaign*)campaign unitId:(NSString*)unitId {
+    CGFloat margin = 35 / 3;
+    CGFloat width = [UIScreen mainScreen].bounds.size.width - margin * 2;
+    CGFloat radius = 40 / 3;
+    CGFloat widthMvMediaView = width - 20;
+    CGFloat heightMvMediaView = widthMvMediaView / 16 * 9;
+    
+//    _nativeAdView = [[UIView alloc] initWithFrame:CGRectMake(5, 0, width, heightMvMediaView + 140)];
+    _nativeAdView = [[UIView alloc] initWithFrame:CGRectMake(margin, 0, width, heightMvMediaView + 65)];
+    _nativeAdView.backgroundColor = [UIColor whiteColor];
+    _nativeAdView.layer.cornerRadius = radius;
+    
+    // icon heart
+    UIImageView *iconHeart = [[UIImageView alloc] initWithFrame:CGRectMake(15, 10, 22, 19)];
+    UIImage *image = [UIImage imageNamed:@"heart"];
+    iconHeart.image = image;
+    [_nativeAdView addSubview:iconHeart];
+    
+    // icon text
+    UILabel *iconText = [[UILabel alloc]initWithFrame:CGRectMake(15, 29, 22, 13)];
+    iconText.text = @"推荐";
+    iconText.numberOfLines = 1;
+    iconText.font = [UIFont systemFontOfSize:10];
+    iconText.clipsToBounds = YES;
+    iconText.backgroundColor = [UIColor clearColor];
+    iconText.textAlignment = UITextAlignmentCenter;
+    iconText.textColor = [UIColor colorWithRed:253.0 / 255.0 green:66.0 / 255.0 blue:66.0 / 255.0 alpha:1.0];
+    [_nativeAdView addSubview:iconText];
+    
+    // icon image view
+    UIImageView *imageHolder = [[UIImageView alloc] initWithFrame:CGRectMake(42, 10, 32, 32)];
+    imageHolder.layer.cornerRadius = 5;
+    imageHolder.layer.borderWidth = 2;
+    imageHolder.layer.borderColor = [UIColor colorWithRed:57.0 / 255.0 green:185.0 / 255.0 blue:138.0 / 255.0 alpha:1.0].CGColor;
+    imageHolder.layer.masksToBounds = YES;
+    
+    imageHolder.backgroundColor = [UIColor redColor];
+    [campaign loadIconUrlAsyncWithBlock:^(UIImage *image) {
+        if (image) {
+            [imageHolder setImage:image];
+        }
+    }];
+    [_nativeAdView addSubview:imageHolder];
+    
+    // app name
+    UILabel *appNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(80, 10, width - 190, 21)];
+    appNameLabel.text = campaign.appName;
+    appNameLabel.numberOfLines = 1;
+    appNameLabel.font = [UIFont systemFontOfSize:16];
+    appNameLabel.clipsToBounds = YES;
+    appNameLabel.backgroundColor = [UIColor clearColor];
+    appNameLabel.textColor = [UIColor colorWithRed:57.0 / 255.0 green:185.0 / 255.0 blue:138.0 / 255.0 alpha:1.0];
+    [_nativeAdView addSubview:appNameLabel];
+    
+    // app desc
+    UILabel *appDescLabel = [[UILabel alloc]initWithFrame:CGRectMake(80, 31, width - 190, 18)];
+    appDescLabel.text = campaign.appDesc;
+    appDescLabel.numberOfLines = 2;
+    appDescLabel.font = [UIFont systemFontOfSize:13];
+    appDescLabel.clipsToBounds = YES;
+    appDescLabel.backgroundColor = [UIColor clearColor];
+    appDescLabel.textColor = [UIColor colorWithRed:97.0 / 255.0 green:97.0 / 255.0 blue:100.0 / 255.0 alpha:1.0];
+    [_nativeAdView addSubview:appDescLabel];
+    
+    // add call btn
+    UIButton *adCallBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    //    [addCallBtn addTarget:self action:@selector(aMethod:) forControlEvents:UIControlEventTouchUpInside]; 1CB0F6
+    [adCallBtn setTitle:campaign.adCall forState:UIControlStateNormal];
+    adCallBtn.frame = CGRectMake(width - 80, 15, 71, 27);
+    adCallBtn.backgroundColor = [UIColor colorWithRed:12.0 / 255.0 green:194.0 / 255.0 blue:135.0 / 255.0 alpha:1.0];
+    adCallBtn.layer.cornerRadius = 13;
+    [_nativeAdView addSubview:adCallBtn];
+    [self.nativeVideoAdManager registerViewForInteraction:adCallBtn withCampaign:campaign];
+    
+    // mv media view
+    MVMediaView *mvMediaView = [[MVMediaView alloc] initWithFrame:CGRectMake(10, 50, widthMvMediaView, heightMvMediaView)];
+    [mvMediaView setMediaSourceWithCampaign:campaign unitId:unitId];
+    mvMediaView.autoLoopPlay = NO;
+    mvMediaView.videoRefresh = YES;
+    mvMediaView.allowFullscreen = YES;
+    mvMediaView.delegate = self;
+    mvMediaView.layer.cornerRadius = 10;
+    [_nativeAdView addSubview:mvMediaView];
+    
+    [self addSubview:_nativeAdView];
+}
+
 - (void)initNativeVideoAdManager {
     [self nativeVideoAdManager];
 }
@@ -244,7 +331,8 @@
         
         if (_nativeAdView == nil) {
             if (_isVideo) {
-                [self initNativeVideoAd: mvCampaign unitId:KNativeUnitID];
+//                [self initNativeVideoAd: mvCampaign unitId:KNativeUnitID];
+                [self initPetNativeVideoAd:mvCampaign unitId:KNativeUnitID];
             } else {
                 [self initNativeAd: mvCampaign];
             }
