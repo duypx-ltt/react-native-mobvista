@@ -270,6 +270,81 @@
     [self addSubview:_nativeAdView];
 }
 
+- (void)initPetNativeAd:(MVCampaign *)campaign {
+    CGFloat margin = 10;
+    CGFloat radius = 20 / 3;
+    CGFloat width = [UIScreen mainScreen].bounds.size.width - margin * 2;
+    
+    _nativeAdView = [[UIView alloc] initWithFrame:CGRectMake(margin, 0, width, 60)];
+    _nativeAdView.backgroundColor = [UIColor whiteColor];
+    _nativeAdView.layer.cornerRadius = radius;
+    
+    // image ad
+    UIImageView *imageHolder = [[UIImageView alloc] initWithFrame:CGRectMake(8, 5, 88, 50)];
+    imageHolder.layer.cornerRadius = 4;
+    imageHolder.layer.masksToBounds = YES;
+//    [campaign loadIconUrlAsyncWithBlock:^(UIImage *image) {
+//        if (image) {
+//            [imageHolder setImage:image];
+//        }
+//    }];
+    
+    [campaign loadImageUrlAsyncWithBlock:^(UIImage *image) {
+        if (image) {
+            [imageHolder setImage:image];
+        }
+    }];
+    
+    [_nativeAdView addSubview:imageHolder];
+    
+    // icon ad
+    UIImageView *iconAD = [[UIImageView alloc] initWithFrame:CGRectMake(100, 10, 16, 16)];
+    UIImage *image = [UIImage imageNamed:@"ad"];
+    iconAD.image = image;
+    [_nativeAdView addSubview:iconAD];
+    
+    // app name
+    UILabel *appNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(120, 10, width - 210, 15)];
+    appNameLabel.text = campaign.appName;
+    appNameLabel.numberOfLines = 1;
+    appNameLabel.font = [UIFont systemFontOfSize:13];
+    appNameLabel.clipsToBounds = YES;
+    appNameLabel.backgroundColor = [UIColor redColor];
+    appNameLabel.textColor = [UIColor colorWithRed:71.0 / 255.0 green:71.0 / 255.0 blue:71.0 / 255.0 alpha:1.0];
+    [_nativeAdView addSubview:appNameLabel];
+
+    // app desc
+    UILabel *appDescLabel = [[UILabel alloc]initWithFrame:CGRectMake(100, 28, width - 190, 27)];
+    appDescLabel.text = campaign.appDesc;
+    appDescLabel.numberOfLines = 2;
+    appDescLabel.font = [UIFont systemFontOfSize:11];
+    appDescLabel.clipsToBounds = YES;
+    appDescLabel.backgroundColor = [UIColor clearColor];
+    appDescLabel.textColor = [UIColor colorWithRed:98.0 / 255.0 green:98.0 / 255.0 blue:98.0 / 255.0 alpha:1.0];
+    [_nativeAdView addSubview:appDescLabel];
+
+    // icon ad
+    UIImageView *iconAD1 = [[UIImageView alloc] initWithFrame:CGRectMake(width - 15, 5, 10, 10)];
+    UIImage *image1 = [UIImage imageNamed:@"icon-ad"];
+    iconAD1.image = image1;
+    [_nativeAdView addSubview:iconAD1];
+    
+    // add call btn
+    UIButton *adCallBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    //    [addCallBtn addTarget:self action:@selector(aMethod:) forControlEvents:UIControlEventTouchUpInside]; 1CB0F6
+    [adCallBtn setTitle:campaign.adCall forState:UIControlStateNormal];
+    adCallBtn.frame = CGRectMake(width - 80, 20, 71, 27);
+    adCallBtn.backgroundColor = [UIColor colorWithRed:12.0 / 255.0 green:194.0 / 255.0 blue:135.0 / 255.0 alpha:1.0];
+    adCallBtn.layer.cornerRadius = 13;
+    [_nativeAdView addSubview:adCallBtn];
+    [self.nativeVideoAdManager registerViewForInteraction:adCallBtn withCampaign:campaign];
+    
+    [self addSubview:_nativeAdView];
+    
+    //    [self.nativeVideoAdManager registerViewForInteraction:bigImageHolder withCampaign:campaign];
+    [self.nativeVideoAdManager registerViewForInteraction:self withCampaign:campaign];
+}
+
 - (void)initNativeVideoAdManager {
     [self nativeVideoAdManager];
 }
@@ -334,7 +409,8 @@
 //                [self initNativeVideoAd: mvCampaign unitId:KNativeUnitID];
                 [self initPetNativeVideoAd:mvCampaign unitId:KNativeUnitID];
             } else {
-                [self initNativeAd: mvCampaign];
+//                [self initNativeAd: mvCampaign];
+                [self initPetNativeAd: mvCampaign];
             }
         }
         if (self.onNativeAdsLoaded) {
