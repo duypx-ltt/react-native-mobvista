@@ -19,9 +19,9 @@ RCT_EXPORT_MODULE();
 
 - (UIView *)view
 {
-    if (_mobvistaView == nil) {
+    // if (_mobvistaView == nil) {
         _mobvistaView = [[RNMobvistaView alloc] init];
-    }
+    // }
     
     return _mobvistaView;
 }

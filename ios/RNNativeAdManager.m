@@ -19,9 +19,9 @@ RCT_EXPORT_MODULE();
 
 - (UIView *)view
 {
-    if (_nativeAdView == nil) {
+    // if (_nativeAdView == nil) {
         _nativeAdView = [[RNNativeAdView alloc] init];
-    }
+    // }
 
     return _nativeAdView;
 //    return [RNNativeAdView new];

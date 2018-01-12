@@ -28,9 +28,9 @@ RCT_EXPORT_MODULE();
 
 - (UIView *)view
 {
-    if (_rewardVideoView == nil) {
+    // if (_rewardVideoView == nil) {
         _rewardVideoView = [RNRewardVideoView new];
-    }
+    // }
     
     return _rewardVideoView;
 }
