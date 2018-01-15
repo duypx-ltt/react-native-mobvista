@@ -309,7 +309,7 @@
     appNameLabel.numberOfLines = 1;
     appNameLabel.font = [UIFont systemFontOfSize:13];
     appNameLabel.clipsToBounds = YES;
-    appNameLabel.backgroundColor = [UIColor redColor];
+    appNameLabel.backgroundColor = [UIColor clearColor];
     appNameLabel.textColor = [UIColor colorWithRed:71.0 / 255.0 green:71.0 / 255.0 blue:71.0 / 255.0 alpha:1.0];
     [_nativeAdView addSubview:appNameLabel];
 
