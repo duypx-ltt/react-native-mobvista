@@ -46,10 +46,10 @@
 }
 
 - (void)setUp {
-    UIImageView *imageHolder = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-    UIImage *image = [UIImage imageNamed:@"star-lighted"];
-    imageHolder.image = image;
-    [self addSubview:imageHolder];
+    // UIImageView *imageHolder = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    // UIImage *image = [UIImage imageNamed:@"star-lighted"];
+    // imageHolder.image = image;
+    // [self addSubview:imageHolder];
     [self initRewardVideo];
     [self loadRewardVideo];
 }
