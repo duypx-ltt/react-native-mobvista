@@ -44,6 +44,7 @@ RCT_EXPORT_METHOD(loadNativeAd) {
 }
 
 RCT_EXPORT_VIEW_PROPERTY(isVideo, BOOL)
+RCT_EXPORT_VIEW_PROPERTY(type, NSString)
 
 RCT_EXPORT_VIEW_PROPERTY(onNativeAdsLoaded, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onNativeAdsFailedToLoadWithError, RCTBubblingEventBlock)
