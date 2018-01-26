@@ -255,6 +255,7 @@
     adCallBtn.frame = CGRectMake(width - 80, 15, 71, 27);
     adCallBtn.backgroundColor = [UIColor colorWithRed:12.0 / 255.0 green:194.0 / 255.0 blue:135.0 / 255.0 alpha:1.0];
     adCallBtn.layer.cornerRadius = 13;
+    adCallBtn.titleLabel.font = [UIFont systemFontOfSize:12];
     [_nativeAdView addSubview:adCallBtn];
     [self.nativeVideoAdManager registerViewForInteraction:adCallBtn withCampaign:campaign];
     
@@ -342,6 +343,7 @@
     adCallBtn.frame = CGRectMake(width - 80, 15, 71, 27);
     adCallBtn.backgroundColor = [UIColor colorWithRed:12.0 / 255.0 green:194.0 / 255.0 blue:135.0 / 255.0 alpha:1.0];
     adCallBtn.layer.cornerRadius = 13;
+    adCallBtn.titleLabel.font = [UIFont systemFontOfSize:12];
     [_nativeAdView addSubview:adCallBtn];
     [self.nativeVideoAdManager registerViewForInteraction:adCallBtn withCampaign:campaign];
     
@@ -434,6 +436,7 @@
     adCallBtn.frame = CGRectMake(width - 80, 20, 71, 27);
     adCallBtn.backgroundColor = [UIColor colorWithRed:12.0 / 255.0 green:194.0 / 255.0 blue:135.0 / 255.0 alpha:1.0];
     adCallBtn.layer.cornerRadius = 13;
+    adCallBtn.titleLabel.font = [UIFont systemFontOfSize:12];
     [_nativeAdView addSubview:adCallBtn];
     [self.nativeVideoAdManager registerViewForInteraction:adCallBtn withCampaign:campaign];
     
