@@ -21,7 +21,7 @@
 #import <MVSDK/MVSDK.h>
 #import <MVSDKAppWall/MVWallAdManager.h>
 
-#define KAppWallUnitID ([[[[NSBundle mainBundle] infoDictionary] objectForKey:@"MVTestMode"] boolValue])? @"1668":@"30106"//测试:线上
+#define KAppWallUnitID [[[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Mobvista" ofType:@"plist"]] objectForKey:@"KAppWallUnitID"] ? [[[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Mobvista" ofType:@"plist"]] objectForKey:@"KAppWallUnitID"] : @"30106"
 
 @implementation RNMobvistaView {
     UIView *_appWall;

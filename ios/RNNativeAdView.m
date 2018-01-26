@@ -10,9 +10,9 @@
 #import <MVSDK/MVMediaView.h>
 #import <MVSDK/MVCampaign.h>
 
-#define KNativeUnitID @"30145"
+#define KNativeUnitID [[[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Mobvista" ofType:@"plist"]] objectForKey:@"KNativeUnitID"] ? [[[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Mobvista" ofType:@"plist"]] objectForKey:@"KNativeUnitID"] : @"30145"
 //#define KRewardVideo @"30146"
-#define KPlacementID @""
+#define KPlacementID [[[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Mobvista" ofType:@"plist"]] objectForKey:@"KPlacementID"] ? [[[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Mobvista" ofType:@"plist"]] objectForKey:@"KPlacementID"] : @""
 
 @implementation RNNativeAdView {
     UIView *_nativeAdView;

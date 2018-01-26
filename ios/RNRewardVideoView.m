@@ -8,8 +8,8 @@
 
 #import "RNRewardVideoView.h"
 
-#define KRewardUnitID @"30146"
-#define KRewardID @"8794"
+#define KRewardUnitID [[[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Mobvista" ofType:@"plist"]] objectForKey:@"KRewardUnitID"] ? [[[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Mobvista" ofType:@"plist"]] objectForKey:@"KRewardUnitID"] : @"30146"
+#define KRewardID [[[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Mobvista" ofType:@"plist"]] objectForKey:@"KRewardID"] ? [[[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Mobvista" ofType:@"plist"]] objectForKey:@"KRewardID"] : @"8794"
 
 @implementation RNRewardVideoView
 
